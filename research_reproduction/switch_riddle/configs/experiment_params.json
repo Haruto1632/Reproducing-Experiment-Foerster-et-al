@@ -1,0 +1,40 @@
+{
+  "_comment": "All paper-specified parameters marked [A]. Assumptions marked [C]. Ambiguities marked [D].",
+  "paper_specified": {
+    "epsilon": 0.05,
+    "gamma": 1.0,
+    "lr": 5e-4,
+    "rms_momentum": 0.95,
+    "batch_size": 32,
+    "target_reset_every_episodes": 100,
+    "sigma_dial": 2.0,
+    "hidden_size": 128,
+    "gru_layers": 2,
+    "embedding_size": 128
+  },
+  "implementation_assumptions": {
+    "task_obs_net": "Linear(1, 128) — paper says task-specific network, depth unspecified [C]",
+    "msg_bn": "BatchNorm1d on scalar message before message MLP [C]",
+    "initial_message": "zeros [C]",
+    "nocomm_impl": "message input zeroed, output ignored, no gradient [C]",
+    "timeout_reward": "0.0 — paper only specifies Tell reward [C]"
+  },
+  "ambiguities": {
+    "epoch_vs_episode": "[D] Paper text says 5k episodes; Figure 4 says # Epochs. Not equated.",
+    "target_at_batch_boundary": "[D/C] Fires at first batch boundary after 100-episode threshold"
+  },
+  "experiments": {
+    "n3": {
+      "n_agents": 3,
+      "max_epochs": 5000,
+      "eval_every_epochs": 50
+    },
+    "n4": {
+      "n_agents": 4,
+      "max_epochs": 40000,
+      "eval_every_epochs": 200
+    }
+  },
+  "seeds": [0, 1, 2, 3, 4],
+  "algorithms": ["dial", "dial_ns", "rial", "rial_ns", "nocomm"]
+}

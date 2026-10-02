@@ -1,0 +1,1283 @@
+{
+  "n": 3,
+  "metadata": {
+    "python_version": "3.13.3 (tags/v3.13.3:6280bb5, Apr  8 2025, 14:47:33) [MSC v.1943 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "torch_version": "2.6.0+cu124",
+    "timestamp": "2026-10-02T14:30:43",
+    "device": "cuda",
+    "gpu_name": "NVIDIA GeForce RTX 3050 Laptop GPU"
+  },
+  "results": {
+    "DIAL": [
+      {
+        "seed": 0,
+        "history": [
+          {
+            "epoch": 10,
+            "plotted_x_axis": 10,
+            "completed_episodes": 320,
+            "update_steps": 10,
+            "env_timesteps": 1163,
+            "target_update_count": 3,
+            "last_target_update_episode": 320,
+            "mean_reward": -1.0,
+            "std_reward": 0.0,
+            "loss": 0.19207166135311127
+          },
+          {
+            "epoch": 20,
+            "plotted_x_axis": 20,
+            "completed_episodes": 640,
+            "update_steps": 20,
+            "env_timesteps": 2396,
+            "target_update_count": 6,
+            "last_target_update_episode": 608,
+            "mean_reward": 0.0,
+            "std_reward": 0.0,
+            "loss": 0.5444962978363037
+          },
+          {
+            "epoch": 30,
+            "plotted_x_axis": 30,
+            "completed_episodes": 960,
+            "update_steps": 30,
+            "env_timesteps": 3299,
+            "target_update_count": 9,
+            "last_target_update_episode": 928,
+            "mean_reward": -1.0,
+            "std_reward": 0.0,
+            "loss": 0.8099508285522461
+          },
+          {
+            "epoch": 40,
+            "plotted_x_axis": 40,
+            "completed_episodes": 1280,
+            "update_steps": 40,
+            "env_timesteps": 4858,
+            "target_update_count": 12,
+            "last_target_update_episode": 1216,
+            "mean_reward": 0.0,
+            "std_reward": 0.0,
+            "loss": 0.5708155632019043
+          },
+          {
+            "epoch": 50,
+            "plotted_x_axis": 50,
+            "completed_episodes": 1600,
+            "update_steps": 50,
+            "env_timesteps": 6657,
+            "target_update_count": 16,
+            "last_target_update_episode": 1600,
+            "mean_reward": 0.0,
+            "std_reward": 0.0,
+            "loss": 0.0478675551712513
+          },
+          {
+            "epoch": 60,
+            "plotted_x_axis": 60,
+            "completed_episodes": 1920,
+            "update_steps": 60,
+            "env_timesteps": 8446,
+            "target_update_count": 19,
+            "last_target_update_episode": 1920,
+            "mean_reward": 0.0,
+            "std_reward": 0.0,
+            "loss": 0.1495586782693863
+          },
+          {
+            "epoch": 70,
+            "plotted_x_axis": 70,
+            "completed_episodes": 2240,
+            "update_steps": 70,
+            "env_timesteps": 10258,
+            "target_update_count": 22,
+            "last_target_update_episode": 2208,
+            "mean_reward": 0.0,
+            "std_reward": 0.0,
+            "loss": 0.11452121287584305
+          },
+          {
+            "epoch": 80,
+            "plotted_x_axis": 80,
+            "completed_episodes": 2560,
+            "update_steps": 80,
+            "env_timesteps": 12055,
+            "target_update_count": 25,
+            "last_target_update_episode": 2528,
+            "mean_reward": -0.5,
+            "std_reward": 0.8798826901281197,
+            "loss": 0.08001603186130524
+          },
+          {
+            "epoch": 90,
+            "plotted_x_axis": 90,
+            "completed_episodes": 2880,
+            "update_steps": 90,
+            "env_timesteps": 12672,
+            "target_update_count": 28,
+            "last_target_update_episode": 2816,
+            "mean_reward": -1.0,
+            "std_reward": 0.0,
+            "loss": 0.17023271322250366
+          },
+          {
+            "epoch": 100,
+            "plotted_x_axis": 100,
+            "completed_episodes": 3200,
+            "update_steps": 100,
+            "env_timesteps": 13949,
+            "target_update_count": 32,
+            "last_target_update_episode": 3200,
+            "mean_reward": 0.0,
+            "std_reward": 0.0,
+            "loss": 0.1398250311613083
+          }
+        ],
+        "elapsed_s": 18.32687282562256
+      },
+      {
+        "seed": 1,
+        "history": [
+          {
+            "epoch": 10,
+            "plotted_x_axis": 10,
+            "completed_episodes": 320,
+            "update_steps": 10,
+            "env_timesteps": 961,
+            "target_update_count": 3,
+            "last_target_update_episode": 320,
+            "mean_reward": -1.0,
+            "std_reward": 0.0,
+            "loss": 0.6382728219032288
+          },
+          {
+            "epoch": 20,
+            "plotted_x_axis": 20,
+            "completed_episodes": 640,
+            "update_steps": 20,
+            "env_timesteps": 2608,
+            "target_update_count": 6,
+            "last_target_update_episode": 608,
+            "mean_reward": -0.1875,
+            "std_reward": 0.9979818344716921,
+            "loss": 0.05762270838022232
+          },
+          {
+            "epoch": 30,
+            "plotted_x_axis": 30,
+            "completed_episodes": 960,
+            "update_steps": 30,
+            "env_timesteps": 3124,
+            "target_update_count": 9,
+            "last_target_update_episode": 928,
+            "mean_reward": -1.0,
+            "std_reward": 0.0,
+            "loss": 0.4543808698654175
+          },
+          {
+            "epoch": 40,
+            "plotted_x_axis": 40,
+            "completed_episodes": 1280,
+            "update_steps": 40,
+            "env_timesteps": 4645,
+            "target_update_count": 12,
+            "last_target_update_episode": 1216,
+            "mean_reward": 0.0,
+            "std_reward": 0.0,
+            "loss": 0.08302339166402817
+          },
+          {
+            "epoch": 50,
+            "plotted_x_axis": 50,
+            "completed_episodes": 1600,
+            "update_steps": 50,
+            "env_timesteps": 6444,
+            "target_update_count": 16,
+            "last_target_update_episode": 1600,
+            "mean_reward": 0.0,
+            "std_reward": 0.0,
+            "loss": 0.0462348647415638
+          },
+          {
+            "epoch": 60,
+            "plotted_x_axis": 60,
+            "completed_episodes": 1920,
+            "update_steps": 60,
+            "env_timesteps": 8263,
+            "target_update_count": 19,
+            "last_target_update_episode": 1920,
+            "mean_reward": 0.0,
+            "std_reward": 0.0,
+            "loss": 0.027683265507221222
+          },
+          {
+            "epoch": 70,
+            "plotted_x_axis": 70,
+            "completed_episodes": 2240,
+            "update_steps": 70,
+            "env_timesteps": 10059,
+            "target_update_count": 22,
+            "last_target_update_episode": 2208,
+            "mean_reward": 0.0,
+            "std_reward": 0.0,
+            "loss": 0.029997272416949272
+          },
+          {
+            "epoch": 80,
+            "plotted_x_axis": 80,
+            "completed_episodes": 2560,
+            "update_steps": 80,
+            "env_timesteps": 11838,
+            "target_update_count": 25,
+            "last_target_update_episode": 2528,
+            "mean_reward": 0.0,
+            "std_reward": 0.0,
+            "loss": 0.0385725237429142
+          },
+          {
+            "epoch": 90,
+            "plotted_x_axis": 90,
+            "completed_episodes": 2880,
+            "update_steps": 90,
+            "env_timesteps": 13626,
+            "target_update_count": 28,
+            "last_target_update_episode": 2816,
+            "mean_reward": 0.0,
+            "std_reward": 0.0,
+            "loss": 0.019763482734560966
+          },
+          {
+            "epoch": 100,
+            "plotted_x_axis": 100,
+            "completed_episodes": 3200,
+            "update_steps": 100,
+            "env_timesteps": 15425,
+            "target_update_count": 32,
+            "last_target_update_episode": 3200,
+            "mean_reward": 0.0,
+            "std_reward": 0.0,
+            "loss": 0.027287807315587997
+          }
+        ],
+        "elapsed_s": 18.228050470352173
+      }
+    ],
+    "DIAL-NS": [
+      {
+        "seed": 0,
+        "history": [
+          {
+            "epoch": 10,
+            "plotted_x_axis": 10,
+            "completed_episodes": 320,
+            "update_steps": 10,
+            "env_timesteps": 1061,
+            "target_update_count": 3,
+            "last_target_update_episode": 320,
+            "mean_reward": -0.8125,
+            "std_reward": 0.592289162160598,
+            "loss": 0.4201008975505829
+          },
+          {
+            "epoch": 20,
+            "plotted_x_axis": 20,
+            "completed_episodes": 640,
+            "update_steps": 20,
+            "env_timesteps": 2277,
+            "target_update_count": 6,
+            "last_target_update_episode": 608,
+            "mean_reward": 0.0,
+            "std_reward": 0.0,
+            "loss": 0.11282449215650558
+          },
+          {
+            "epoch": 30,
+            "plotted_x_axis": 30,
+            "completed_episodes": 960,
+            "update_steps": 30,
+            "env_timesteps": 3501,
+            "target_update_count": 9,
+            "last_target_update_episode": 928,
+            "mean_reward": -0.5,
+            "std_reward": 0.8798826901281197,
+            "loss": 0.3392283320426941
+          },
+          {
+            "epoch": 40,
+            "plotted_x_axis": 40,
+            "completed_episodes": 1280,
+            "update_steps": 40,
+            "env_timesteps": 4565,
+            "target_update_count": 12,
+            "last_target_update_episode": 1216,
+            "mean_reward": 0.0,
+            "std_reward": 0.0,
+            "loss": 0.026878876611590385
+          },
+          {
+            "epoch": 50,
+            "plotted_x_axis": 50,
+            "completed_episodes": 1600,
+            "update_steps": 50,
+            "env_timesteps": 6110,
+            "target_update_count": 16,
+            "last_target_update_episode": 1600,
+            "mean_reward": -0.5,
+            "std_reward": 0.8032193289024988,
+            "loss": 0.2191666215658188
+          },
+          {
+            "epoch": 60,
+            "plotted_x_axis": 60,
+            "completed_episodes": 1920,
+            "update_steps": 60,
+            "env_timesteps": 7048,
+            "target_update_count": 19,
+            "last_target_update_episode": 1920,
+            "mean_reward": -0.5,
+            "std_reward": 0.8798826901281197,
+            "loss": 0.31943362951278687
+          },
+          {
+            "epoch": 70,
+            "plotted_x_axis": 70,
+            "completed_episodes": 2240,
+            "update_steps": 70,
+            "env_timesteps": 8518,
+            "target_update_count": 22,
+            "last_target_update_episode": 2208,
+            "mean_reward": 0.0,
+            "std_reward": 0.0,
+            "loss": 0.11649376899003983
+          },
+          {
+            "epoch": 80,
+            "plotted_x_axis": 80,
+            "completed_episodes": 2560,
+            "update_steps": 80,
+            "env_timesteps": 10314,
+            "target_update_count": 25,
+            "last_target_update_episode": 2528,
+            "mean_reward": -0.25,
+            "std_reward": 0.8798826901281197,
+            "loss": 0.05633833631873131
+          },
+          {
+            "epoch": 90,
+            "plotted_x_axis": 90,
+            "completed_episodes": 2880,
+            "update_steps": 90,
+            "env_timesteps": 11541,
+            "target_update_count": 28,
+            "last_target_update_episode": 2816,
+            "mean_reward": -0.40625,
+            "std_reward": 0.9108441671187194,
+            "loss": 0.31746888160705566
+          },
+          {
+            "epoch": 100,
+            "plotted_x_axis": 100,
+            "completed_episodes": 3200,
+            "update_steps": 100,
+            "env_timesteps": 12514,
+            "target_update_count": 32,
+            "last_target_update_episode": 3200,
+            "mean_reward": -0.40625,
+            "std_reward": 0.9108441671187194,
+            "loss": 0.20281940698623657
+          }
+        ],
+        "elapsed_s": 16.356282234191895
+      },
+      {
+        "seed": 1,
+        "history": [
+          {
+            "epoch": 10,
+            "plotted_x_axis": 10,
+            "completed_episodes": 320,
+            "update_steps": 10,
+            "env_timesteps": 1012,
+            "target_update_count": 3,
+            "last_target_update_episode": 320,
+            "mean_reward": -0.09375,
+            "std_reward": 0.9283830897266078,
+            "loss": 0.29577043652534485
+          },
+          {
+            "epoch": 20,
+            "plotted_x_axis": 20,
+            "completed_episodes": 640,
+            "update_steps": 20,
+            "env_timesteps": 2453,
+            "target_update_count": 6,
+            "last_target_update_episode": 608,
+            "mean_reward": 0.0,
+            "std_reward": 0.0,
+            "loss": 0.13315872848033905
+          },
+          {
+            "epoch": 30,
+            "plotted_x_axis": 30,
+            "completed_episodes": 960,
+            "update_steps": 30,
+            "env_timesteps": 3413,
+            "target_update_count": 9,
+            "last_target_update_episode": 928,
+            "mean_reward": 0.1875,
+            "std_reward": 0.7378040652569471,
+            "loss": 0.43489745259284973
+          },
+          {
+            "epoch": 40,
+            "plotted_x_axis": 40,
+            "completed_episodes": 1280,
+            "update_steps": 40,
+            "env_timesteps": 4982,
+            "target_update_count": 12,
+            "last_target_update_episode": 1216,
+            "mean_reward": 0.0,
+            "std_reward": 0.0,
+            "loss": 0.04018988460302353
+          },
+          {
+            "epoch": 50,
+            "plotted_x_axis": 50,
+            "completed_episodes": 1600,
+            "update_steps": 50,
+            "env_timesteps": 6290,
+            "target_update_count": 16,
+            "last_target_update_episode": 1600,
+            "mean_reward": -0.25,
+            "std_reward": 0.8798826901281197,
+            "loss": 0.07160250842571259
+          },
+          {
+            "epoch": 60,
+            "plotted_x_axis": 60,
+            "completed_episodes": 1920,
+            "update_steps": 60,
+            "env_timesteps": 7371,
+            "target_update_count": 19,
+            "last_target_update_episode": 1920,
+            "mean_reward": -1.0,
+            "std_reward": 0.0,
+            "loss": 0.1663748323917389
+          },
+          {
+            "epoch": 70,
+            "plotted_x_axis": 70,
+            "completed_episodes": 2240,
+            "update_steps": 70,
+            "env_timesteps": 8776,
+            "target_update_count": 22,
+            "last_target_update_episode": 2208,
+            "mean_reward": 0.0,
+            "std_reward": 0.0,
+            "loss": 0.06665923446416855
+          },
+          {
+            "epoch": 80,
+            "plotted_x_axis": 80,
+            "completed_episodes": 2560,
+            "update_steps": 80,
+            "env_timesteps": 10599,
+            "target_update_count": 25,
+            "last_target_update_episode": 2528,
+            "mean_reward": 0.0,
+            "std_reward": 0.0,
+            "loss": 0.10583101958036423
+          },
+          {
+            "epoch": 90,
+            "plotted_x_axis": 90,
+            "completed_episodes": 2880,
+            "update_steps": 90,
+            "env_timesteps": 11681,
+            "target_update_count": 28,
+            "last_target_update_episode": 2816,
+            "mean_reward": -0.1875,
+            "std_reward": 0.9651174088696286,
+            "loss": 0.3228175938129425
+          },
+          {
+            "epoch": 100,
+            "plotted_x_axis": 100,
+            "completed_episodes": 3200,
+            "update_steps": 100,
+            "env_timesteps": 13288,
+            "target_update_count": 32,
+            "last_target_update_episode": 3200,
+            "mean_reward": 0.0,
+            "std_reward": 0.0,
+            "loss": 0.1166825070977211
+          }
+        ],
+        "elapsed_s": 17.839916467666626
+      }
+    ],
+    "RIAL": [
+      {
+        "seed": 0,
+        "history": [
+          {
+            "epoch": 10,
+            "plotted_x_axis": 10,
+            "completed_episodes": 320,
+            "update_steps": 10,
+            "env_timesteps": 1040,
+            "target_update_count": 3,
+            "last_target_update_episode": 320,
+            "mean_reward": -1.0,
+            "std_reward": 0.0,
+            "loss": 0.3629130721092224
+          },
+          {
+            "epoch": 20,
+            "plotted_x_axis": 20,
+            "completed_episodes": 640,
+            "update_steps": 20,
+            "env_timesteps": 2401,
+            "target_update_count": 6,
+            "last_target_update_episode": 608,
+            "mean_reward": 0.0,
+            "std_reward": 0.0,
+            "loss": 0.2537633776664734
+          },
+          {
+            "epoch": 30,
+            "plotted_x_axis": 30,
+            "completed_episodes": 960,
+            "update_steps": 30,
+            "env_timesteps": 3904,
+            "target_update_count": 9,
+            "last_target_update_episode": 928,
+            "mean_reward": -1.0,
+            "std_reward": 0.0,
+            "loss": 0.044192299246788025
+          },
+          {
+            "epoch": 40,
+            "plotted_x_axis": 40,
+            "completed_episodes": 1280,
+            "update_steps": 40,
+            "env_timesteps": 4913,
+            "target_update_count": 12,
+            "last_target_update_episode": 1216,
+            "mean_reward": 0.0,
+            "std_reward": 0.0,
+            "loss": 0.137444868683815
+          },
+          {
+            "epoch": 50,
+            "plotted_x_axis": 50,
+            "completed_episodes": 1600,
+            "update_steps": 50,
+            "env_timesteps": 6720,
+            "target_update_count": 16,
+            "last_target_update_episode": 1600,
+            "mean_reward": 0.0,
+            "std_reward": 0.0,
+            "loss": 0.08211566507816315
+          },
+          {
+            "epoch": 60,
+            "plotted_x_axis": 60,
+            "completed_episodes": 1920,
+            "update_steps": 60,
+            "env_timesteps": 8007,
+            "target_update_count": 19,
+            "last_target_update_episode": 1920,
+            "mean_reward": -1.0,
+            "std_reward": 0.0,
+            "loss": 0.030353832989931107
+          },
+          {
+            "epoch": 70,
+            "plotted_x_axis": 70,
+            "completed_episodes": 2240,
+            "update_steps": 70,
+            "env_timesteps": 9072,
+            "target_update_count": 22,
+            "last_target_update_episode": 2208,
+            "mean_reward": 0.0,
+            "std_reward": 0.0,
+            "loss": 0.11533432453870773
+          },
+          {
+            "epoch": 80,
+            "plotted_x_axis": 80,
+            "completed_episodes": 2560,
+            "update_steps": 80,
+            "env_timesteps": 10903,
+            "target_update_count": 25,
+            "last_target_update_episode": 2528,
+            "mean_reward": 0.0,
+            "std_reward": 0.0,
+            "loss": 0.11095652729272842
+          },
+          {
+            "epoch": 90,
+            "plotted_x_axis": 90,
+            "completed_episodes": 2880,
+            "update_steps": 90,
+            "env_timesteps": 12701,
+            "target_update_count": 28,
+            "last_target_update_episode": 2816,
+            "mean_reward": 0.0,
+            "std_reward": 0.0,
+            "loss": 0.020787011831998825
+          },
+          {
+            "epoch": 100,
+            "plotted_x_axis": 100,
+            "completed_episodes": 3200,
+            "update_steps": 100,
+            "env_timesteps": 14448,
+            "target_update_count": 32,
+            "last_target_update_episode": 3200,
+            "mean_reward": 0.0,
+            "std_reward": 0.0,
+            "loss": 0.06081996113061905
+          }
+        ],
+        "elapsed_s": 18.6006817817688
+      },
+      {
+        "seed": 1,
+        "history": [
+          {
+            "epoch": 10,
+            "plotted_x_axis": 10,
+            "completed_episodes": 320,
+            "update_steps": 10,
+            "env_timesteps": 1038,
+            "target_update_count": 3,
+            "last_target_update_episode": 320,
+            "mean_reward": 0.0,
+            "std_reward": 0.0,
+            "loss": 0.48037880659103394
+          },
+          {
+            "epoch": 20,
+            "plotted_x_axis": 20,
+            "completed_episodes": 640,
+            "update_steps": 20,
+            "env_timesteps": 2847,
+            "target_update_count": 6,
+            "last_target_update_episode": 608,
+            "mean_reward": 0.0,
+            "std_reward": 0.0,
+            "loss": 0.047958943992853165
+          },
+          {
+            "epoch": 30,
+            "plotted_x_axis": 30,
+            "completed_episodes": 960,
+            "update_steps": 30,
+            "env_timesteps": 4418,
+            "target_update_count": 9,
+            "last_target_update_episode": 928,
+            "mean_reward": 0.0,
+            "std_reward": 0.0,
+            "loss": 0.06817688792943954
+          },
+          {
+            "epoch": 40,
+            "plotted_x_axis": 40,
+            "completed_episodes": 1280,
+            "update_steps": 40,
+            "env_timesteps": 6186,
+            "target_update_count": 12,
+            "last_target_update_episode": 1216,
+            "mean_reward": 0.0,
+            "std_reward": 0.0,
+            "loss": 0.042307257652282715
+          },
+          {
+            "epoch": 50,
+            "plotted_x_axis": 50,
+            "completed_episodes": 1600,
+            "update_steps": 50,
+            "env_timesteps": 7957,
+            "target_update_count": 16,
+            "last_target_update_episode": 1600,
+            "mean_reward": -1.0,
+            "std_reward": 0.0,
+            "loss": 0.29700183868408203
+          },
+          {
+            "epoch": 60,
+            "plotted_x_axis": 60,
+            "completed_episodes": 1920,
+            "update_steps": 60,
+            "env_timesteps": 8383,
+            "target_update_count": 19,
+            "last_target_update_episode": 1920,
+            "mean_reward": -1.0,
+            "std_reward": 0.0,
+            "loss": 0.13221736252307892
+          },
+          {
+            "epoch": 70,
+            "plotted_x_axis": 70,
+            "completed_episodes": 2240,
+            "update_steps": 70,
+            "env_timesteps": 9828,
+            "target_update_count": 22,
+            "last_target_update_episode": 2208,
+            "mean_reward": 0.0,
+            "std_reward": 0.0,
+            "loss": 0.0953109934926033
+          },
+          {
+            "epoch": 80,
+            "plotted_x_axis": 80,
+            "completed_episodes": 2560,
+            "update_steps": 80,
+            "env_timesteps": 11669,
+            "target_update_count": 25,
+            "last_target_update_episode": 2528,
+            "mean_reward": 0.0,
+            "std_reward": 0.0,
+            "loss": 0.054402563720941544
+          },
+          {
+            "epoch": 90,
+            "plotted_x_axis": 90,
+            "completed_episodes": 2880,
+            "update_steps": 90,
+            "env_timesteps": 12530,
+            "target_update_count": 28,
+            "last_target_update_episode": 2816,
+            "mean_reward": -1.0,
+            "std_reward": 0.0,
+            "loss": 0.13610559701919556
+          },
+          {
+            "epoch": 100,
+            "plotted_x_axis": 100,
+            "completed_episodes": 3200,
+            "update_steps": 100,
+            "env_timesteps": 13066,
+            "target_update_count": 32,
+            "last_target_update_episode": 3200,
+            "mean_reward": -1.0,
+            "std_reward": 0.0,
+            "loss": 0.19541364908218384
+          }
+        ],
+        "elapsed_s": 16.43973660469055
+      }
+    ],
+    "RIAL-NS": [
+      {
+        "seed": 0,
+        "history": [
+          {
+            "epoch": 10,
+            "plotted_x_axis": 10,
+            "completed_episodes": 320,
+            "update_steps": 10,
+            "env_timesteps": 1228,
+            "target_update_count": 3,
+            "last_target_update_episode": 320,
+            "mean_reward": 0.0,
+            "std_reward": 0.0,
+            "loss": 0.09723618626594543
+          },
+          {
+            "epoch": 20,
+            "plotted_x_axis": 20,
+            "completed_episodes": 640,
+            "update_steps": 20,
+            "env_timesteps": 2279,
+            "target_update_count": 6,
+            "last_target_update_episode": 608,
+            "mean_reward": -0.625,
+            "std_reward": 0.7071067811865476,
+            "loss": 0.4884384572505951
+          },
+          {
+            "epoch": 30,
+            "plotted_x_axis": 30,
+            "completed_episodes": 960,
+            "update_steps": 30,
+            "env_timesteps": 3913,
+            "target_update_count": 9,
+            "last_target_update_episode": 928,
+            "mean_reward": 0.0,
+            "std_reward": 0.0,
+            "loss": 0.07327987998723984
+          },
+          {
+            "epoch": 40,
+            "plotted_x_axis": 40,
+            "completed_episodes": 1280,
+            "update_steps": 40,
+            "env_timesteps": 5465,
+            "target_update_count": 12,
+            "last_target_update_episode": 1216,
+            "mean_reward": -0.5,
+            "std_reward": 0.8798826901281197,
+            "loss": 0.06057673320174217
+          },
+          {
+            "epoch": 50,
+            "plotted_x_axis": 50,
+            "completed_episodes": 1600,
+            "update_steps": 50,
+            "env_timesteps": 7191,
+            "target_update_count": 16,
+            "last_target_update_episode": 1600,
+            "mean_reward": 0.0,
+            "std_reward": 0.0,
+            "loss": 0.018183747306466103
+          },
+          {
+            "epoch": 60,
+            "plotted_x_axis": 60,
+            "completed_episodes": 1920,
+            "update_steps": 60,
+            "env_timesteps": 8832,
+            "target_update_count": 19,
+            "last_target_update_episode": 1920,
+            "mean_reward": 0.0,
+            "std_reward": 0.0,
+            "loss": 0.025778306648135185
+          },
+          {
+            "epoch": 70,
+            "plotted_x_axis": 70,
+            "completed_episodes": 2240,
+            "update_steps": 70,
+            "env_timesteps": 10464,
+            "target_update_count": 22,
+            "last_target_update_episode": 2208,
+            "mean_reward": 0.0,
+            "std_reward": 0.0,
+            "loss": 0.015527240931987762
+          },
+          {
+            "epoch": 80,
+            "plotted_x_axis": 80,
+            "completed_episodes": 2560,
+            "update_steps": 80,
+            "env_timesteps": 11996,
+            "target_update_count": 25,
+            "last_target_update_episode": 2528,
+            "mean_reward": 0.0,
+            "std_reward": 0.0,
+            "loss": 0.09461786597967148
+          },
+          {
+            "epoch": 90,
+            "plotted_x_axis": 90,
+            "completed_episodes": 2880,
+            "update_steps": 90,
+            "env_timesteps": 13492,
+            "target_update_count": 28,
+            "last_target_update_episode": 2816,
+            "mean_reward": -0.0625,
+            "std_reward": 0.981687158630159,
+            "loss": 0.26871293783187866
+          },
+          {
+            "epoch": 100,
+            "plotted_x_axis": 100,
+            "completed_episodes": 3200,
+            "update_steps": 100,
+            "env_timesteps": 14672,
+            "target_update_count": 32,
+            "last_target_update_episode": 3200,
+            "mean_reward": 0.0,
+            "std_reward": 0.0,
+            "loss": 0.21055836975574493
+          }
+        ],
+        "elapsed_s": 18.82874822616577
+      },
+      {
+        "seed": 1,
+        "history": [
+          {
+            "epoch": 10,
+            "plotted_x_axis": 10,
+            "completed_episodes": 320,
+            "update_steps": 10,
+            "env_timesteps": 1007,
+            "target_update_count": 3,
+            "last_target_update_episode": 320,
+            "mean_reward": -0.9375,
+            "std_reward": 0.3535533905932738,
+            "loss": 0.44645750522613525
+          },
+          {
+            "epoch": 20,
+            "plotted_x_axis": 20,
+            "completed_episodes": 640,
+            "update_steps": 20,
+            "env_timesteps": 2367,
+            "target_update_count": 6,
+            "last_target_update_episode": 608,
+            "mean_reward": -0.0625,
+            "std_reward": 0.981687158630159,
+            "loss": 0.4839448034763336
+          },
+          {
+            "epoch": 30,
+            "plotted_x_axis": 30,
+            "completed_episodes": 960,
+            "update_steps": 30,
+            "env_timesteps": 3764,
+            "target_update_count": 9,
+            "last_target_update_episode": 928,
+            "mean_reward": 0.0,
+            "std_reward": 0.0,
+            "loss": 0.14066855609416962
+          },
+          {
+            "epoch": 40,
+            "plotted_x_axis": 40,
+            "completed_episodes": 1280,
+            "update_steps": 40,
+            "env_timesteps": 5328,
+            "target_update_count": 12,
+            "last_target_update_episode": 1216,
+            "mean_reward": 0.0,
+            "std_reward": 0.0,
+            "loss": 0.07030346244573593
+          },
+          {
+            "epoch": 50,
+            "plotted_x_axis": 50,
+            "completed_episodes": 1600,
+            "update_steps": 50,
+            "env_timesteps": 6838,
+            "target_update_count": 16,
+            "last_target_update_episode": 1600,
+            "mean_reward": -1.0,
+            "std_reward": 0.0,
+            "loss": 0.3351615071296692
+          },
+          {
+            "epoch": 60,
+            "plotted_x_axis": 60,
+            "completed_episodes": 1920,
+            "update_steps": 60,
+            "env_timesteps": 8005,
+            "target_update_count": 19,
+            "last_target_update_episode": 1920,
+            "mean_reward": 0.0,
+            "std_reward": 0.0,
+            "loss": 0.42230525612831116
+          },
+          {
+            "epoch": 70,
+            "plotted_x_axis": 70,
+            "completed_episodes": 2240,
+            "update_steps": 70,
+            "env_timesteps": 9814,
+            "target_update_count": 22,
+            "last_target_update_episode": 2208,
+            "mean_reward": 0.0,
+            "std_reward": 0.0,
+            "loss": 0.23247754573822021
+          },
+          {
+            "epoch": 80,
+            "plotted_x_axis": 80,
+            "completed_episodes": 2560,
+            "update_steps": 80,
+            "env_timesteps": 11614,
+            "target_update_count": 25,
+            "last_target_update_episode": 2528,
+            "mean_reward": -0.5,
+            "std_reward": 0.8798826901281197,
+            "loss": 0.07263634353876114
+          },
+          {
+            "epoch": 90,
+            "plotted_x_axis": 90,
+            "completed_episodes": 2880,
+            "update_steps": 90,
+            "env_timesteps": 13064,
+            "target_update_count": 28,
+            "last_target_update_episode": 2816,
+            "mean_reward": -0.8125,
+            "std_reward": 0.592289162160598,
+            "loss": 0.3280855715274811
+          },
+          {
+            "epoch": 100,
+            "plotted_x_axis": 100,
+            "completed_episodes": 3200,
+            "update_steps": 100,
+            "env_timesteps": 14365,
+            "target_update_count": 32,
+            "last_target_update_episode": 3200,
+            "mean_reward": 0.0,
+            "std_reward": 0.0,
+            "loss": 0.09988786280155182
+          }
+        ],
+        "elapsed_s": 18.503418445587158
+      }
+    ],
+    "NoComm": [
+      {
+        "seed": 0,
+        "history": [
+          {
+            "epoch": 10,
+            "plotted_x_axis": 10,
+            "completed_episodes": 320,
+            "update_steps": 10,
+            "env_timesteps": 1056,
+            "target_update_count": 3,
+            "last_target_update_episode": 320,
+            "mean_reward": 0.40625,
+            "std_reward": 0.7975516971817058,
+            "loss": 0.27539342641830444
+          },
+          {
+            "epoch": 20,
+            "plotted_x_axis": 20,
+            "completed_episodes": 640,
+            "update_steps": 20,
+            "env_timesteps": 2809,
+            "target_update_count": 6,
+            "last_target_update_episode": 608,
+            "mean_reward": 0.0,
+            "std_reward": 0.0,
+            "loss": 0.0449841246008873
+          },
+          {
+            "epoch": 30,
+            "plotted_x_axis": 30,
+            "completed_episodes": 960,
+            "update_steps": 30,
+            "env_timesteps": 4386,
+            "target_update_count": 9,
+            "last_target_update_episode": 928,
+            "mean_reward": -1.0,
+            "std_reward": 0.0,
+            "loss": 0.9287728071212769
+          },
+          {
+            "epoch": 40,
+            "plotted_x_axis": 40,
+            "completed_episodes": 1280,
+            "update_steps": 40,
+            "env_timesteps": 5594,
+            "target_update_count": 12,
+            "last_target_update_episode": 1216,
+            "mean_reward": 0.0,
+            "std_reward": 0.0,
+            "loss": 0.04742760583758354
+          },
+          {
+            "epoch": 50,
+            "plotted_x_axis": 50,
+            "completed_episodes": 1600,
+            "update_steps": 50,
+            "env_timesteps": 7396,
+            "target_update_count": 16,
+            "last_target_update_episode": 1600,
+            "mean_reward": 0.0,
+            "std_reward": 0.0,
+            "loss": 0.17531390488147736
+          },
+          {
+            "epoch": 60,
+            "plotted_x_axis": 60,
+            "completed_episodes": 1920,
+            "update_steps": 60,
+            "env_timesteps": 9213,
+            "target_update_count": 19,
+            "last_target_update_episode": 1920,
+            "mean_reward": 0.0,
+            "std_reward": 0.0,
+            "loss": 0.07171639055013657
+          },
+          {
+            "epoch": 70,
+            "plotted_x_axis": 70,
+            "completed_episodes": 2240,
+            "update_steps": 70,
+            "env_timesteps": 10983,
+            "target_update_count": 22,
+            "last_target_update_episode": 2208,
+            "mean_reward": 0.0,
+            "std_reward": 0.0,
+            "loss": 0.03629474714398384
+          },
+          {
+            "epoch": 80,
+            "plotted_x_axis": 80,
+            "completed_episodes": 2560,
+            "update_steps": 80,
+            "env_timesteps": 12766,
+            "target_update_count": 25,
+            "last_target_update_episode": 2528,
+            "mean_reward": 0.0,
+            "std_reward": 0.0,
+            "loss": 0.034142859280109406
+          },
+          {
+            "epoch": 90,
+            "plotted_x_axis": 90,
+            "completed_episodes": 2880,
+            "update_steps": 90,
+            "env_timesteps": 14535,
+            "target_update_count": 28,
+            "last_target_update_episode": 2816,
+            "mean_reward": 0.0,
+            "std_reward": 0.0,
+            "loss": 0.014941317960619926
+          },
+          {
+            "epoch": 100,
+            "plotted_x_axis": 100,
+            "completed_episodes": 3200,
+            "update_steps": 100,
+            "env_timesteps": 16311,
+            "target_update_count": 32,
+            "last_target_update_episode": 3200,
+            "mean_reward": 0.0,
+            "std_reward": 0.0,
+            "loss": 0.019749118015170097
+          }
+        ],
+        "elapsed_s": 18.68512201309204
+      },
+      {
+        "seed": 1,
+        "history": [
+          {
+            "epoch": 10,
+            "plotted_x_axis": 10,
+            "completed_episodes": 320,
+            "update_steps": 10,
+            "env_timesteps": 991,
+            "target_update_count": 3,
+            "last_target_update_episode": 320,
+            "mean_reward": 0.0,
+            "std_reward": 0.0,
+            "loss": 0.532193660736084
+          },
+          {
+            "epoch": 20,
+            "plotted_x_axis": 20,
+            "completed_episodes": 640,
+            "update_steps": 20,
+            "env_timesteps": 2831,
+            "target_update_count": 6,
+            "last_target_update_episode": 608,
+            "mean_reward": 0.0,
+            "std_reward": 0.0,
+            "loss": 0.027732133865356445
+          },
+          {
+            "epoch": 30,
+            "plotted_x_axis": 30,
+            "completed_episodes": 960,
+            "update_steps": 30,
+            "env_timesteps": 4561,
+            "target_update_count": 9,
+            "last_target_update_episode": 928,
+            "mean_reward": 0.0,
+            "std_reward": 0.0,
+            "loss": 0.03929580748081207
+          },
+          {
+            "epoch": 40,
+            "plotted_x_axis": 40,
+            "completed_episodes": 1280,
+            "update_steps": 40,
+            "env_timesteps": 6350,
+            "target_update_count": 12,
+            "last_target_update_episode": 1216,
+            "mean_reward": 0.0,
+            "std_reward": 0.0,
+            "loss": 0.04851600527763367
+          },
+          {
+            "epoch": 50,
+            "plotted_x_axis": 50,
+            "completed_episodes": 1600,
+            "update_steps": 50,
+            "env_timesteps": 8174,
+            "target_update_count": 16,
+            "last_target_update_episode": 1600,
+            "mean_reward": 0.0,
+            "std_reward": 0.0,
+            "loss": 0.03111553005874157
+          },
+          {
+            "epoch": 60,
+            "plotted_x_axis": 60,
+            "completed_episodes": 1920,
+            "update_steps": 60,
+            "env_timesteps": 9997,
+            "target_update_count": 19,
+            "last_target_update_episode": 1920,
+            "mean_reward": 0.0,
+            "std_reward": 0.0,
+            "loss": 0.028717052191495895
+          },
+          {
+            "epoch": 70,
+            "plotted_x_axis": 70,
+            "completed_episodes": 2240,
+            "update_steps": 70,
+            "env_timesteps": 11806,
+            "target_update_count": 22,
+            "last_target_update_episode": 2208,
+            "mean_reward": 0.0,
+            "std_reward": 0.0,
+            "loss": 0.0083830701187253
+          },
+          {
+            "epoch": 80,
+            "plotted_x_axis": 80,
+            "completed_episodes": 2560,
+            "update_steps": 80,
+            "env_timesteps": 13414,
+            "target_update_count": 25,
+            "last_target_update_episode": 2528,
+            "mean_reward": 0.0,
+            "std_reward": 0.0,
+            "loss": 0.03576236963272095
+          },
+          {
+            "epoch": 90,
+            "plotted_x_axis": 90,
+            "completed_episodes": 2880,
+            "update_steps": 90,
+            "env_timesteps": 15236,
+            "target_update_count": 28,
+            "last_target_update_episode": 2816,
+            "mean_reward": 0.0,
+            "std_reward": 0.0,
+            "loss": 0.01716809906065464
+          },
+          {
+            "epoch": 100,
+            "plotted_x_axis": 100,
+            "completed_episodes": 3200,
+            "update_steps": 100,
+            "env_timesteps": 17071,
+            "target_update_count": 32,
+            "last_target_update_episode": 3200,
+            "mean_reward": 0.0,
+            "std_reward": 0.0,
+            "loss": 0.01107662171125412
+          }
+        ],
+        "elapsed_s": 19.71851873397827
+      }
+    ]
+  }
+}
