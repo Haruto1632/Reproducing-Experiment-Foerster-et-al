@@ -42,7 +42,8 @@ _repo_root = os.path.join(_this_dir, "..", "..")
 sys.path.insert(0, _this_dir)           # for: import switch_riddle.*
 sys.path.insert(0, os.path.join(_this_dir, ".."))  # for: import research_reproduction.*
 
-from switch_riddle.training.trainer import Trainer, TrainingConfig, print_device_info, get_device
+from switch_riddle.training.trainer import TrainingConfig, print_device_info, get_device
+from switch_riddle.training.fast_trainer import FastTrainer
 
 
 # ---------------------------------------------------------------------------
@@ -145,7 +146,7 @@ def main():
                 log_dir        = args.results_dir,
             )
             t0 = time.time()
-            trainer = Trainer(cfg)
+            trainer = FastTrainer(cfg)
             history = trainer.train()
             elapsed = time.time() - t0
 

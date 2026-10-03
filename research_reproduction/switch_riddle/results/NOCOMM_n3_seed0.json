@@ -24,7 +24,7 @@
   "final_counters": {
     "completed_episodes": 3200,
     "update_steps": 100,
-    "env_timesteps": 16311,
+    "env_timesteps": 14157,
     "plotted_x_axis": 100,
     "target_update_count": 32,
     "last_target_update_episode": 3200,
@@ -36,120 +36,120 @@
       "plotted_x_axis": 10,
       "completed_episodes": 320,
       "update_steps": 10,
-      "env_timesteps": 1056,
+      "env_timesteps": 930,
       "target_update_count": 3,
       "last_target_update_episode": 320,
-      "mean_reward": 0.40625,
-      "std_reward": 0.7975516971817058,
-      "loss": 0.27539342641830444
+      "mean_reward": -1.0,
+      "std_reward": 0.0,
+      "loss": 0.10963936895132065
     },
     {
       "epoch": 20,
       "plotted_x_axis": 20,
       "completed_episodes": 640,
       "update_steps": 20,
-      "env_timesteps": 2809,
+      "env_timesteps": 2445,
       "target_update_count": 6,
       "last_target_update_episode": 608,
       "mean_reward": 0.0,
       "std_reward": 0.0,
-      "loss": 0.0449841246008873
+      "loss": 0.034855883568525314
     },
     {
       "epoch": 30,
       "plotted_x_axis": 30,
       "completed_episodes": 960,
       "update_steps": 30,
-      "env_timesteps": 4386,
+      "env_timesteps": 4224,
       "target_update_count": 9,
       "last_target_update_episode": 928,
-      "mean_reward": -1.0,
+      "mean_reward": 0.0,
       "std_reward": 0.0,
-      "loss": 0.9287728071212769
+      "loss": 0.016447745263576508
     },
     {
       "epoch": 40,
       "plotted_x_axis": 40,
       "completed_episodes": 1280,
       "update_steps": 40,
-      "env_timesteps": 5594,
+      "env_timesteps": 5369,
       "target_update_count": 12,
       "last_target_update_episode": 1216,
-      "mean_reward": 0.0,
+      "mean_reward": -1.0,
       "std_reward": 0.0,
-      "loss": 0.04742760583758354
+      "loss": 0.04434465244412422
     },
     {
       "epoch": 50,
       "plotted_x_axis": 50,
       "completed_episodes": 1600,
       "update_steps": 50,
-      "env_timesteps": 7396,
+      "env_timesteps": 7020,
       "target_update_count": 16,
       "last_target_update_episode": 1600,
       "mean_reward": 0.0,
       "std_reward": 0.0,
-      "loss": 0.17531390488147736
+      "loss": 0.2752164900302887
     },
     {
       "epoch": 60,
       "plotted_x_axis": 60,
       "completed_episodes": 1920,
       "update_steps": 60,
-      "env_timesteps": 9213,
+      "env_timesteps": 8822,
       "target_update_count": 19,
       "last_target_update_episode": 1920,
       "mean_reward": 0.0,
       "std_reward": 0.0,
-      "loss": 0.07171639055013657
+      "loss": 0.07179702818393707
     },
     {
       "epoch": 70,
       "plotted_x_axis": 70,
       "completed_episodes": 2240,
       "update_steps": 70,
-      "env_timesteps": 10983,
+      "env_timesteps": 10625,
       "target_update_count": 22,
       "last_target_update_episode": 2208,
       "mean_reward": 0.0,
       "std_reward": 0.0,
-      "loss": 0.03629474714398384
+      "loss": 0.014938081614673138
     },
     {
       "epoch": 80,
       "plotted_x_axis": 80,
       "completed_episodes": 2560,
       "update_steps": 80,
-      "env_timesteps": 12766,
+      "env_timesteps": 11579,
       "target_update_count": 25,
       "last_target_update_episode": 2528,
-      "mean_reward": 0.0,
+      "mean_reward": -1.0,
       "std_reward": 0.0,
-      "loss": 0.034142859280109406
+      "loss": 0.08382295072078705
     },
     {
       "epoch": 90,
       "plotted_x_axis": 90,
       "completed_episodes": 2880,
       "update_steps": 90,
-      "env_timesteps": 14535,
+      "env_timesteps": 12362,
       "target_update_count": 28,
       "last_target_update_episode": 2816,
       "mean_reward": 0.0,
       "std_reward": 0.0,
-      "loss": 0.014941317960619926
+      "loss": 0.23732805252075195
     },
     {
       "epoch": 100,
       "plotted_x_axis": 100,
       "completed_episodes": 3200,
       "update_steps": 100,
-      "env_timesteps": 16311,
+      "env_timesteps": 14157,
       "target_update_count": 32,
       "last_target_update_episode": 3200,
       "mean_reward": 0.0,
       "std_reward": 0.0,
-      "loss": 0.019749118015170097
+      "loss": 0.03601115569472313
     }
   ]
 }

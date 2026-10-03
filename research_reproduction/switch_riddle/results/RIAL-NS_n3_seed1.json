@@ -24,7 +24,7 @@
   "final_counters": {
     "completed_episodes": 3200,
     "update_steps": 100,
-    "env_timesteps": 14365,
+    "env_timesteps": 11620,
     "plotted_x_axis": 100,
     "target_update_count": 32,
     "last_target_update_episode": 3200,
@@ -36,120 +36,120 @@
       "plotted_x_axis": 10,
       "completed_episodes": 320,
       "update_steps": 10,
-      "env_timesteps": 1007,
+      "env_timesteps": 668,
       "target_update_count": 3,
       "last_target_update_episode": 320,
       "mean_reward": -0.9375,
       "std_reward": 0.3535533905932738,
-      "loss": 0.44645750522613525
+      "loss": 0.24173042178153992
     },
     {
       "epoch": 20,
       "plotted_x_axis": 20,
       "completed_episodes": 640,
       "update_steps": 20,
-      "env_timesteps": 2367,
+      "env_timesteps": 1762,
       "target_update_count": 6,
       "last_target_update_episode": 608,
-      "mean_reward": -0.0625,
-      "std_reward": 0.981687158630159,
-      "loss": 0.4839448034763336
+      "mean_reward": -0.09375,
+      "std_reward": 0.8929608234732722,
+      "loss": 0.40491750836372375
     },
     {
       "epoch": 30,
       "plotted_x_axis": 30,
       "completed_episodes": 960,
       "update_steps": 30,
-      "env_timesteps": 3764,
+      "env_timesteps": 2612,
       "target_update_count": 9,
       "last_target_update_episode": 928,
       "mean_reward": 0.0,
       "std_reward": 0.0,
-      "loss": 0.14066855609416962
+      "loss": 0.49242472648620605
     },
     {
       "epoch": 40,
       "plotted_x_axis": 40,
       "completed_episodes": 1280,
       "update_steps": 40,
-      "env_timesteps": 5328,
+      "env_timesteps": 4045,
       "target_update_count": 12,
       "last_target_update_episode": 1216,
-      "mean_reward": 0.0,
-      "std_reward": 0.0,
-      "loss": 0.07030346244573593
+      "mean_reward": -0.0625,
+      "std_reward": 0.9482581654734626,
+      "loss": 0.2086622267961502
     },
     {
       "epoch": 50,
       "plotted_x_axis": 50,
       "completed_episodes": 1600,
       "update_steps": 50,
-      "env_timesteps": 6838,
+      "env_timesteps": 5401,
       "target_update_count": 16,
       "last_target_update_episode": 1600,
-      "mean_reward": -1.0,
+      "mean_reward": 0.0,
       "std_reward": 0.0,
-      "loss": 0.3351615071296692
+      "loss": 0.2104598879814148
     },
     {
       "epoch": 60,
       "plotted_x_axis": 60,
       "completed_episodes": 1920,
       "update_steps": 60,
-      "env_timesteps": 8005,
+      "env_timesteps": 6808,
       "target_update_count": 19,
       "last_target_update_episode": 1920,
-      "mean_reward": 0.0,
-      "std_reward": 0.0,
-      "loss": 0.42230525612831116
+      "mean_reward": -0.09375,
+      "std_reward": 0.8929608234732722,
+      "loss": 0.2564425468444824
     },
     {
       "epoch": 70,
       "plotted_x_axis": 70,
       "completed_episodes": 2240,
       "update_steps": 70,
-      "env_timesteps": 9814,
+      "env_timesteps": 8483,
       "target_update_count": 22,
       "last_target_update_episode": 2208,
       "mean_reward": 0.0,
       "std_reward": 0.0,
-      "loss": 0.23247754573822021
+      "loss": 0.03220142424106598
     },
     {
       "epoch": 80,
       "plotted_x_axis": 80,
       "completed_episodes": 2560,
       "update_steps": 80,
-      "env_timesteps": 11614,
+      "env_timesteps": 9563,
       "target_update_count": 25,
       "last_target_update_episode": 2528,
-      "mean_reward": -0.5,
-      "std_reward": 0.8798826901281197,
-      "loss": 0.07263634353876114
+      "mean_reward": -1.0,
+      "std_reward": 0.0,
+      "loss": 0.18143057823181152
     },
     {
       "epoch": 90,
       "plotted_x_axis": 90,
       "completed_episodes": 2880,
       "update_steps": 90,
-      "env_timesteps": 13064,
+      "env_timesteps": 10371,
       "target_update_count": 28,
       "last_target_update_episode": 2816,
-      "mean_reward": -0.8125,
-      "std_reward": 0.592289162160598,
-      "loss": 0.3280855715274811
+      "mean_reward": -0.09375,
+      "std_reward": 0.8929608234732722,
+      "loss": 0.293115496635437
     },
     {
       "epoch": 100,
       "plotted_x_axis": 100,
       "completed_episodes": 3200,
       "update_steps": 100,
-      "env_timesteps": 14365,
+      "env_timesteps": 11620,
       "target_update_count": 32,
       "last_target_update_episode": 3200,
       "mean_reward": 0.0,
       "std_reward": 0.0,
-      "loss": 0.09988786280155182
+      "loss": 0.0495365634560585
     }
   ]
 }

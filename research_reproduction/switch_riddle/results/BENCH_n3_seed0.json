@@ -1,0 +1,34 @@
+{
+  "algorithm": "BENCH",
+  "n_agents": 3,
+  "param_sharing": true,
+  "seed": 0,
+  "config": {
+    "n_agents": 3,
+    "algorithm": "nocomm",
+    "param_sharing": true,
+    "epsilon": 0.05,
+    "gamma": 1.0,
+    "lr": 0.0005,
+    "rms_momentum": 0.95,
+    "batch_size": 32,
+    "target_reset_every_episodes": 100,
+    "sigma": 2.0,
+    "max_epochs": 50,
+    "eval_every_epochs": 51,
+    "eval_episodes": 32,
+    "seed": 0,
+    "log_dir": "C:\\Users\\DELL\\OneDrive\\Documents\\GitHub\\Reproducing-Experiment-Foerster-et-al\\research_reproduction\\switch_riddle\\tests\\..\\results",
+    "algorithm_label": "BENCH"
+  },
+  "final_counters": {
+    "completed_episodes": 1600,
+    "update_steps": 50,
+    "env_timesteps": 7020,
+    "plotted_x_axis": 50,
+    "target_update_count": 16,
+    "last_target_update_episode": 1600,
+    "_next_target_threshold": 1700
+  },
+  "history": []
+}
