@@ -1,0 +1,67 @@
+[
+  {
+    "algorithm": "DIAL",
+    "seeds": [
+      0
+    ],
+    "completed_episodes": 3200.0,
+    "update_steps": 100.0,
+    "env_timesteps": 16512.0,
+    "target_update_count": 32.0,
+    "final_raw_reward": "0.000 +/- 0.000",
+    "final_norm_reward": "0.000 +/- 0.000",
+    "final_norm_mean": 0.0
+  },
+  {
+    "algorithm": "DIAL-NS",
+    "seeds": [
+      0
+    ],
+    "completed_episodes": 3200.0,
+    "update_steps": 100.0,
+    "env_timesteps": 15555.0,
+    "target_update_count": 32.0,
+    "final_raw_reward": "0.250 +/- 0.000",
+    "final_norm_reward": "0.337 +/- 0.000",
+    "final_norm_mean": 0.33749999999999997
+  },
+  {
+    "algorithm": "NoComm",
+    "seeds": [
+      0
+    ],
+    "completed_episodes": 3200.0,
+    "update_steps": 100.0,
+    "env_timesteps": 16253.0,
+    "target_update_count": 32.0,
+    "final_raw_reward": "0.000 +/- 0.000",
+    "final_norm_reward": "0.000 +/- 0.000",
+    "final_norm_mean": 0.0
+  },
+  {
+    "algorithm": "RIAL",
+    "seeds": [
+      0
+    ],
+    "completed_episodes": 3200.0,
+    "update_steps": 100.0,
+    "env_timesteps": 15616.0,
+    "target_update_count": 32.0,
+    "final_raw_reward": "0.000 +/- 0.000",
+    "final_norm_reward": "0.000 +/- 0.000",
+    "final_norm_mean": 0.0
+  },
+  {
+    "algorithm": "RIAL-NS",
+    "seeds": [
+      0
+    ],
+    "completed_episodes": 3200.0,
+    "update_steps": 100.0,
+    "env_timesteps": 15929.0,
+    "target_update_count": 32.0,
+    "final_raw_reward": "0.219 +/- 0.000",
+    "final_norm_reward": "0.295 +/- 0.000",
+    "final_norm_mean": 0.2953125
+  }
+]

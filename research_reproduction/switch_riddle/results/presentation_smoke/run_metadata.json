@@ -1,0 +1,7 @@
+{
+  "python_version": "3.13.3 (tags/v3.13.3:6280bb5, Apr  8 2025, 14:47:33) [MSC v.1943 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "torch_version": "2.14.1+cpu",
+  "timestamp": "2026-10-06T17:48:30",
+  "device": "cpu"
+}

@@ -63,6 +63,36 @@ from switch_riddle.training.trainer import (
 )
 
 
+def _rial_message_td_loss(
+    q_m: torch.Tensor,
+    selected_messages: torch.Tensor,
+    target_q_m_next: torch.Tensor,
+    reward: torch.Tensor,
+    done: torch.Tensor,
+    in_room: torch.Tensor,
+    in_room_next: torch.Tensor,
+    active: torch.Tensor,
+    gamma: float,
+) -> torch.Tensor:
+    """Sum RIAL communication TD errors over legal room-agent actions."""
+    n = q_m.shape[0]
+    agent_indices = torch.arange(n, device=q_m.device).unsqueeze(1)
+    current_mask = active.unsqueeze(0) & (in_room.unsqueeze(0) == agent_indices)
+    next_mask = in_room_next.unsqueeze(0) == agent_indices
+    q_m_taken = q_m.gather(2, selected_messages.unsqueeze(2)).squeeze(2)
+    next_value = torch.where(
+        next_mask,
+        target_q_m_next.max(dim=2).values,
+        torch.zeros_like(reward).unsqueeze(0).expand(n, -1),
+    )
+    target = torch.where(
+        done.unsqueeze(0),
+        reward.unsqueeze(0).expand(n, -1),
+        reward.unsqueeze(0) + gamma * next_value,
+    )
+    return (((q_m_taken - target) ** 2) * current_mask).sum()
+
+
 def run_batch_fast(
     batch_env: BatchedSwitchRiddle,
     controller,
@@ -110,8 +140,16 @@ def run_batch_fast(
     # Initial recurrent hidden states: zeros [A]
     if shared and alg in ("dial", "rial", "nocomm"):
         h_all = get_agent(0).init_hidden(n * B, device)
+        target_h_all = (
+            get_target_agent(0).init_hidden(n * B, device)
+            if target_controller is not None else None
+        )
     else:
         h_list = [get_agent(a).init_hidden(B, device) for a in range(n)]
+        target_h_list = (
+            [get_target_agent(a).init_hidden(B, device) for a in range(n)]
+            if target_controller is not None else None
+        )
 
     # Initial prev_actions: zeros [A]
     if shared and alg in ("dial", "rial", "nocomm"):
@@ -125,6 +163,10 @@ def run_batch_fast(
 
     # Room switch message: initial switch state is 0.0 [C]
     room_switch_msg = torch.zeros(B, 1, device=device)
+    # DIAL's target policy has its own recurrently generated communication
+    # stream, as in the released implementation. RIAL target inputs use the
+    # messages actually emitted by the online policy.
+    target_room_switch_msg = torch.zeros(B, 1, device=device)
     in_room_gpu = batch_env.in_room.to(device)
 
     rollout = []
@@ -133,6 +175,10 @@ def run_batch_fast(
     # Forward Pass Unroll
     # -----------------------------------------------------------------------
     for step in range(T + 1):
+        target_h_all_next = None
+        target_h_list_next = None
+        target_room_msg_out = None
+
         # Observation matrix: (n, B, 1) — 1.0 if in_room and active, else 0.0
         in_room_mask = (in_room_gpu.unsqueeze(0) == arange_n.unsqueeze(1))
         obs_matrix = (in_room_mask & active.unsqueeze(0)).float().unsqueeze(2)
@@ -147,6 +193,14 @@ def run_batch_fast(
                 room_switch_msg.unsqueeze(0).expand(n, B, 1),
                 torch.zeros(n, B, 1, device=device)
             )
+        if alg == "dial":
+            target_msg_matrix = torch.where(
+                in_room_mask.unsqueeze(2),
+                target_room_switch_msg.unsqueeze(0).expand(n, B, 1),
+                torch.zeros(n, B, 1, device=device),
+            )
+        else:
+            target_msg_matrix = msg_matrix
 
         if shared and alg in ("dial", "rial", "nocomm"):
             obs_stacked = obs_matrix.view(n * B, 1)
@@ -178,6 +232,7 @@ def run_batch_fast(
                 room_msg_disc = (room_msg_out.detach() >= 0.5).long().squeeze(1)
                 q_m_split = None
                 sel_msgs = None
+
             else:  # nocomm
                 q_u_all, _, h_all_next = agent(obs_stacked, msg_stacked, prev_act_all, aid_stacked, h_all)
                 q_u_split = q_u_all.view(n, B, N_ACTIONS)
@@ -185,12 +240,31 @@ def run_batch_fast(
                 room_msg_out = torch.zeros(B, 1, device=device)
                 q_m_split = None
                 sel_msgs = None
+
+            if target_controller is not None:
+                target_agent = get_target_agent(0)
+                with torch.no_grad():
+                    _, target_msg_all, target_h_all_next = target_agent(
+                        obs_stacked, target_msg_matrix.view(n * B, 1),
+                        prev_act_all, aid_stacked,
+                        target_h_all,
+                    )
+                    if alg == "dial":
+                        target_msg_all = target_controller.dru(
+                            target_msg_all, training=training
+                        )
+                        target_msg_split = target_msg_all.view(n, B, 1)
+                        target_room_msg_out = target_msg_split.gather(
+                            0, in_room_gpu.unsqueeze(0).unsqueeze(2)
+                        ).squeeze(0)
+
         else:
             # Non-shared (-NS) variants
             q_u_split = []
             q_m_split = [] if alg == "rial" else None
             m_dru_split = [] if alg == "dial" else None
             h_list_next = []
+            target_h_list_next = [] if target_controller is not None else None
 
             for a in range(n):
                 ag = get_agent(a)
@@ -213,6 +287,29 @@ def run_batch_fast(
                     q_u, _, h_new = ag(obs_a, msg_a, act_a, aid_a, h_a)
                     q_u_split.append(q_u)
                 h_list_next.append(h_new)
+
+                if target_controller is not None:
+                    target_agent = get_target_agent(a)
+                    with torch.no_grad():
+                        _, target_msg, target_h_new = target_agent(
+                            obs_a, target_msg_matrix[a], act_a, aid_a,
+                            target_h_list[a],
+                        )
+                        if alg == "dial":
+                            target_msg = target_controller.dru(
+                                target_msg, training=training
+                            )
+                            if target_room_msg_out is None:
+                                target_room_msg_out = torch.zeros(
+                                    B, 1, device=device
+                                )
+                            target_room_msg_out = torch.where(
+                                (in_room_gpu == a).unsqueeze(1),
+                                target_msg,
+                                target_room_msg_out,
+                            )
+                    target_h_list_next.append(target_h_new)
+
 
             q_u_split = torch.stack(q_u_split, dim=0)
 
@@ -271,21 +368,33 @@ def run_batch_fast(
             "reward": reward,
             "done_next": done_next,
             "active": active,
+            "in_room": in_room_gpu,
             "in_room_next": in_room_next,
             "room_msg_out": room_msg_out,
+            "target_room_msg_out": target_room_msg_out,
             "h_next": h_all_next if (shared and alg in ("dial", "rial", "nocomm")) else h_list_next,
+            "target_h_next": (
+                target_h_all_next if (shared and alg in ("dial", "rial", "nocomm"))
+                else target_h_list_next
+            ),
         })
 
         active = ~done_next
         in_room_gpu = in_room_next
         room_switch_msg = room_msg_out
+        if alg == "dial" and target_room_msg_out is not None:
+            target_room_switch_msg = target_room_msg_out
 
         if shared and alg in ("dial", "rial", "nocomm"):
             prev_act_all = env_acts.view(n * B).detach()
             h_all = h_all_next
+            if target_controller is not None:
+                target_h_all = target_h_all_next
         else:
             prev_act_list = [env_acts[a].detach() for a in range(n)]
             h_list = h_list_next
+            if target_controller is not None:
+                target_h_list = target_h_list_next
 
         if not active.any():
             break
@@ -318,9 +427,14 @@ def run_batch_fast(
                 if alg == "nocomm":
                     msg_nxt_m = torch.zeros(n, B, 1, device=device)
                 else:
+                    message_for_target = step_data["room_msg_out"]
+                    if alg == "dial":
+                        message_for_target = step_data["target_room_msg_out"]
+                    if message_for_target is None:
+                        message_for_target = target_room_switch_msg
                     msg_nxt_m = torch.where(
                         in_r_nxt_m.unsqueeze(2),
-                        step_data["room_msg_out"].detach().unsqueeze(0).expand(n, B, 1),
+                        message_for_target.detach().unsqueeze(0).expand(n, B, 1),
                         torch.zeros(n, B, 1, device=device)
                     )
 
@@ -328,27 +442,37 @@ def run_batch_fast(
                     obs_nxt_stk = obs_nxt_m.float().unsqueeze(2).view(n * B, 1)
                     msg_nxt_stk = msg_nxt_m.view(n * B, 1)
                     t_agent = get_target_agent(0)
-                    q_tgt_all, _, _ = t_agent(
+                    q_tgt_all, q_m_tgt_all, _ = t_agent(
                         obs_nxt_stk,
                         msg_nxt_stk,
                         acts.view(n * B),
                         aid_stacked,
-                        step_data["h_next"]
+                        step_data["target_h_next"]
                     )
                     q_tgt_sp = q_tgt_all.view(n, B, N_ACTIONS)
+                    q_m_tgt_sp = (
+                        q_m_tgt_all.view(n, B, 2) if alg == "rial" else None
+                    )
                 else:
                     q_tgt_list = []
+                    q_m_tgt_list = [] if alg == "rial" else None
                     for a in range(n):
                         t_agent = get_target_agent(a)
-                        q_tgt, _, _ = t_agent(
+                        q_tgt, q_m_tgt, _ = t_agent(
                             obs_nxt_m[a].float().unsqueeze(1),
                             msg_nxt_m[a],
                             acts[a],
                             agent_id_tensors[a],
-                            step_data["h_next"][a]
+                            step_data["target_h_next"][a]
                         )
                         q_tgt_list.append(q_tgt)
+                        if alg == "rial":
+                            q_m_tgt_list.append(q_m_tgt)
                     q_tgt_sp = torch.stack(q_tgt_list, dim=0)
+                    q_m_tgt_sp = (
+                        torch.stack(q_m_tgt_list, dim=0)
+                        if alg == "rial" else None
+                    )
 
                 # Legal action masking for next-state values
                 next_val = torch.where(
@@ -361,11 +485,15 @@ def run_batch_fast(
             sq_err = (q_sa - target) ** 2
 
             if alg == "rial" and step_data["q_m_split"] is not None:
-                q_m = step_data["q_m_split"]
-                sel_m = step_data["sel_msgs"]
-                q_m_sa = q_m.gather(2, sel_m.unsqueeze(2)).squeeze(2)
-                sq_err_m = (q_m_sa - target) ** 2
-                sq_err = sq_err + sq_err_m
+                # Messages are legal only for the agent currently in the
+                # room. The reference learns a separate communication Q
+                # target and masks message TD error to legal comm actions.
+                loss = loss + _rial_message_td_loss(
+                    step_data["q_m_split"], step_data["sel_msgs"],
+                    q_m_tgt_sp, step_data["reward"], step_data["done_next"],
+                    step_data["in_room"], step_data["in_room_next"],
+                    step_data["active"], gamma,
+                )
 
             loss = loss + (sq_err * act_mask).sum()
             total_transitions += act_mask.sum()

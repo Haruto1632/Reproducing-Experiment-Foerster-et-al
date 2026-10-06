@@ -24,13 +24,83 @@ from switch_riddle.environment.switch_env import (
 )
 from switch_riddle.environment.batched_env import BatchedSwitchRiddle
 from switch_riddle.training.trainer import (
-    TrainingConfig, Trainer, run_batch, get_device,
+    TrainingConfig, Trainer, run_batch, get_device, NoCommController,
 )
+from switch_riddle.agents.rnn_agent import RNNAgent
 from switch_riddle.training.fast_trainer import (
-    FastTrainer, run_batch_fast,
+    FastTrainer, run_batch_fast, _rial_message_td_loss,
 )
+from switch_riddle.communication.dial import DIALController
+from switch_riddle.communication.dru import DRU
 
 DEVICE = get_device()
+
+
+def test_rial_message_loss_uses_separate_target_and_room_mask():
+    """RIAL comm TD error uses target Qm and only legal room-agent actions."""
+    q_m = torch.tensor([[[2.0, 0.0]], [[7.0, 0.0]]], requires_grad=True)
+    selected = torch.zeros((2, 1), dtype=torch.long)
+    target_q_m_next = torch.tensor([[[100.0, 90.0]], [[5.0, 4.0]]])
+    reward = torch.tensor([0.0])
+    done = torch.tensor([False])
+    current_room = torch.tensor([0])
+    next_room = torch.tensor([1])
+    active = torch.tensor([True])
+
+    loss = _rial_message_td_loss(
+        q_m, selected, target_q_m_next, reward, done, current_room,
+        next_room, active, gamma=1.0,
+    )
+    loss.backward()
+
+    # Agent 0 is the only legal current sender, and is not the next sender;
+    # its comm bootstrap is therefore zero. Agent 1's large online Q is ignored.
+    assert loss.item() == pytest.approx(4.0)
+    assert q_m.grad[0, 0, 0].item() == pytest.approx(4.0)
+    assert torch.count_nonzero(q_m.grad[1]).item() == 0
+
+
+def test_dial_target_rollout_uses_target_generated_messages():
+    """Target DIAL recurrence receives its own messages, not online outputs."""
+    class FixedMessage:
+        def __init__(self, value):
+            self.value = value
+
+        def __call__(self, message, training):
+            return torch.full_like(message, self.value)
+
+    n, batch = 3, 2
+    device = torch.device("cpu")
+    config = TrainingConfig(n_agents=n, algorithm="dial", batch_size=batch,
+                            max_epochs=1, seed=29)
+    online = RNNAgent(n_agents=n, n_actions=2, n_messages=1,
+                      comm_mode="dial").to(device)
+    target = RNNAgent(n_agents=n, n_actions=2, n_messages=1,
+                      comm_mode="dial").to(device)
+    with torch.no_grad():
+        for network in (online, target):
+            for param in network.parameters():
+                param.zero_()
+    online_ctrl = DIALController(online, FixedMessage(0.2), epsilon=0.0)
+    target_ctrl = DIALController(target, FixedMessage(0.8), epsilon=0.0)
+    env = BatchedSwitchRiddle(n=n, B=batch, seed=7, device=device)
+    agent_ids = [torch.full((batch,), a, dtype=torch.long, device=device)
+                 for a in range(n)]
+    zero_messages = [torch.zeros(batch, 1, device=device) for _ in range(n)]
+    target_inputs = []
+    handle = target.register_forward_pre_hook(
+        lambda _module, inputs: target_inputs.append(inputs[1].detach().clone())
+    )
+    try:
+        run_batch_fast(env, online_ctrl, config, training=True, device=device,
+                       agent_id_tensors=agent_ids, zero_msgs=zero_messages,
+                       target_controller=target_ctrl)
+    finally:
+        handle.remove()
+
+    # Once the target has emitted a message, the next target forward pass
+    # must see 0.8 for the room occupant. Reusing online messages would yield 0.2.
+    assert any(torch.any(message > 0.7).item() for message in target_inputs[1:])
 
 
 # ===========================================================================
@@ -271,6 +341,48 @@ class TestTrainerEquivalence:
         for h in (h_orig, h_fast):
             for rec in h:
                 assert -1.0 <= rec["mean_reward"] <= 1.0
+
+
+def test_fast_rollout_advances_target_hidden_independently():
+    """A zeroed target GRU must retain its own zero state over rollout."""
+    n, batch = 3, 2
+    device = torch.device("cpu")
+    config = TrainingConfig(n_agents=n, algorithm="nocomm", batch_size=batch,
+                            max_epochs=1, seed=23)
+    online = RNNAgent(n_agents=n, n_actions=2, n_messages=1,
+                      comm_mode="nocomm").to(device)
+    target = RNNAgent(n_agents=n, n_actions=2, n_messages=1,
+                      comm_mode="nocomm").to(device)
+    with torch.no_grad():
+        for param in target.parameters():
+            param.zero_()
+    online_ctrl = NoCommController(online, epsilon=0.0)
+    target_ctrl = NoCommController(target, epsilon=0.0)
+    env = BatchedSwitchRiddle(n=n, B=batch, seed=5, device=device)
+    agent_ids = [torch.full((batch,), a, dtype=torch.long, device=device)
+                 for a in range(n)]
+    zero_messages = [torch.zeros(batch, 1, device=device) for _ in range(n)]
+
+    recorded_target_hiddens = []
+    handles = [
+        layer.register_forward_hook(
+            lambda _module, _inputs, output: recorded_target_hiddens.append(
+                output[1].detach().clone()
+            )
+        )
+        for layer in [target.gru]
+    ]
+    try:
+        run_batch_fast(env, online_ctrl, config, training=True, device=device,
+                       agent_id_tensors=agent_ids, zero_msgs=zero_messages,
+                       target_controller=target_ctrl)
+    finally:
+        for handle in handles:
+            handle.remove()
+
+    assert recorded_target_hiddens
+    assert all(torch.count_nonzero(hidden).item() == 0
+               for hidden in recorded_target_hiddens)
 
 
 # ===========================================================================
