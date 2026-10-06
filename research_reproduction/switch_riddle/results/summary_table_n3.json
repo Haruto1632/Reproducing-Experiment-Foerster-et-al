@@ -1,0 +1,87 @@
+[
+  {
+    "algorithm": "DIAL",
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "completed_episodes": 160000.0,
+    "update_steps": 5000.0,
+    "env_timesteps": 780047.8,
+    "target_update_count": 1600.0,
+    "final_raw_reward": "0.475 +/- 0.314",
+    "final_norm_reward": "0.641 +/- 0.424",
+    "final_norm_mean": 0.64125
+  },
+  {
+    "algorithm": "DIAL-NS",
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "completed_episodes": 160000.0,
+    "update_steps": 5000.0,
+    "env_timesteps": 773007.8,
+    "target_update_count": 1600.0,
+    "final_raw_reward": "0.252 +/- 0.051",
+    "final_norm_reward": "0.340 +/- 0.069",
+    "final_norm_mean": 0.34019999999999995
+  },
+  {
+    "algorithm": "NoComm",
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "completed_episodes": 160000.0,
+    "update_steps": 5000.0,
+    "env_timesteps": 812009.0,
+    "target_update_count": 1600.0,
+    "final_raw_reward": "0.285 +/- 0.154",
+    "final_norm_reward": "0.385 +/- 0.208",
+    "final_norm_mean": 0.38475000000000004
+  },
+  {
+    "algorithm": "RIAL",
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "completed_episodes": 160000.0,
+    "update_steps": 5000.0,
+    "env_timesteps": 870435.8,
+    "target_update_count": 1600.0,
+    "final_raw_reward": "0.057 +/- 0.114",
+    "final_norm_reward": "0.077 +/- 0.154",
+    "final_norm_mean": 0.07694999999999999
+  },
+  {
+    "algorithm": "RIAL-NS",
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "completed_episodes": 160000.0,
+    "update_steps": 5000.0,
+    "env_timesteps": 827172.0,
+    "target_update_count": 1600.0,
+    "final_raw_reward": "0.273 +/- 0.114",
+    "final_norm_reward": "0.369 +/- 0.154",
+    "final_norm_mean": 0.36854999999999993
+  }
+]

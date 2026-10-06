@@ -627,3 +627,8 @@ class Trainer:
         with open(fname, "w") as f:
             json.dump(out, f, indent=2)
         print(f"  -> log saved: {fname}")
+
+
+# Alias Trainer to FastTrainer for paper-faithful Algorithm 1 execution
+from switch_riddle.training.fast_trainer import FastTrainer
+Trainer = FastTrainer

@@ -24,7 +24,7 @@
   "final_counters": {
     "completed_episodes": 1600,
     "update_steps": 50,
-    "env_timesteps": 7020,
+    "env_timesteps": 8007,
     "plotted_x_axis": 50,
     "target_update_count": 16,
     "last_target_update_episode": 1600,
